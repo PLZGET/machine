@@ -74,3 +74,57 @@ plt.hist(age, bins=100, edgecolor='black')
 plt.title('Histogram (bins=100)')
 
 plt.show()
+
+
+
+
+# 그래프를 이용한 "양적자료" 요약
+
+# 1) 히스토그램
+# - 일변량 자료의 분포
+# 2) 상자그림
+# - 데이터 분포
+# - 자료의 산포도 및 대칭성의 정도, 이상치의 유무
+# 3)줄기-잎 그림(stem and leaf plot)
+# - 전체 자료를 display하는 그래프임
+
+# 그래프(표)를 이용한 "질적자료" 요약
+
+# 1) 1차원빈도표(frequency table)
+# - 질적 자료의 빈도표(수치표) (Pandas)
+# (sr_data.value_counts()랑 groupby() + size()로 구할 수 있음)
+
+# 2) 막대도표
+# - 각 범주별 빈도를 막대로 표현
+
+# 3) 원도표
+# - 질적자료의 각 범주별 빈도를 원의 형태로 표현
+# - 각 범주별 빈도표(frequency table)을 이용해 원도표를 그릴 수 있다
+
+# @ plot 함수가 있어 (Pandas 데이터프레임)
+# table = iris.groupby("species").size() //종별 빈도수 표
+# table.polt( kind='bar', x = table.index, y=table.valuses,
+# title='bar chart of iris.species')
+
+# table = iris.groupby("species").size()
+# table.plot(kind='pie',
+# x=table.index, y=table.values, 
+# title='bar chart of iris.species', 
+# autopct='$1.1f%%')
+
+
+# describe 함수(pandas 데이터프레임)
+# df_name.describe()
+# - df의 양적 변수들에 대한 간단한 요약통계량 값 출력
+# df_name.describe(include='object')
+# - df의 질적 변수에 대한 요약 통계량 값 출력
+# df_name.describe(include='all')
+# - 양적, 질적 변수 모두에 대한 요약 통계량 값 출력
+# df_name.변수명.describe()
+# - 지정된 변수에서 양적, 질적에 대한 요약통계량 출력
+# df_name[['변수1', ... '변수2']].describe()
+# - 지정된 여러 변수에 대한 양적, 질적 ~~
+
+
+# Pandas 데이터프레임에서 기술통계량 함수
+#  df_name.변수명.함수를 사용하여 양적자료의 기술통계량을 구할 수 있다!
