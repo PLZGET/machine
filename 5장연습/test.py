@@ -101,3 +101,27 @@ print(cl)
 # cl에 대한 age 상자그림 출력 (수평으로 그리고 그리드 없음)
 cl.boxplot("age", vert=False, grid=False)
 plt.show()
+# 상자그림에서 이상치를 확인
+# => 제3사분위수를 이용하여 이상치를 제거해야겠다
+
+# 이상치 제거
+cl2 = cl.loc[cl['age']<np.percentile(cl['age'], 75)] # 제3사분위수보다 작은 값만 cl2에 저장
+
+# 이상치 제거후 그림을 확인해보자
+cl2.boxplot("age", vert=False, grid=False)
+plt.show()
+
+
+# 최댓값 최솟값 정규화
+# 정규화(Normalization) : 데이터의 범위를 0과 1로 변환하는 것
+
+# z-스코어 정규화
+# 기존 값을 표준하여 처리하는 방법
+# z = (x - mean) / std
+
+
+# 데이터 중복
+# duplicated() : 중복된 데이터 확인
+# drop_duplicates() : 중복된 데이터 제거
+
+iris.drop_duplicates(['sepal_length', 'sepal_width']) # 중복된 데이터 제거
